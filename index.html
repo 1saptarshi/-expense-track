@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold text-center mb-8">Expense Tracker</h1>
+
+        <div class="flex flex-wrap justify-center mb-8">
+            <div class="w-full max-w-md">
+                <div id="expense-form" class="mb-4">
+                    <form id="add-expense-form" class="bg-white p-6 rounded-lg shadow-lg">
+                        <h2 class="text-xl font-bold mb-4">Add Expense</h2>
+                        <div class="mb-4">
+                            <label for="amount" class="block text-gray-700">Amount:<i class="fa-solid fa-piggy-bank" style="color: #63E6BE;"></i></label>
+                            <input type="number" id="amount" class="w-full border rounded p-2" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="date" class="block text-gray-700">Date:<i class="fa-solid fa-calendar-days" style="color: #63E6BE;"></i></label>
+                            <input type="date" id="date" class="w-full border rounded p-2" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="category" class="block text-gray-700">Category:<i class="fa-solid fa-layer-group" style="color: #63E6BE;"></i></label>
+                            <select id="category" class="w-full border rounded p-2">
+                                <option value="Food">Food</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Custom">Custom</option>
+                            </select>
+                        </div>
+                        <div class="mb-4" id="custom-category-div" style="display: none;">
+                            <label for="custom-category" class="block text-gray-700">Custom Category:</label>
+                            <input type="text" id="custom-category" class="w-full border rounded p-2">
+                        </div>
+                        <div class="mb-4">
+                            <label for="description" class="block text-gray-700">Description:<i class="fa-solid fa-file" style="color: #63E6BE;"></i></label>
+                            <input type="text" id="description" class="w-full border rounded p-2">
+                        </div>
+                        <button type="submit" class="bg-blue-500 text-white p-2 rounded w-full">Add Expense</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center mb-8">
+            <div class="w-full max-w-md">
+                <div id="expense-summary" class="bg-white p-6 rounded-lg shadow-lg mb-4">
+                    <h2 class="text-xl font-bold mb-2">Summary <i class="fa-regular fa-rectangle-list" style="color: #63E6BE;"></i></h2>
+                    <div>Total Expenses: <span id="total-expenses"> ₹0.00</span></div>
+                    <div>Remaining Budget: <span id="remaining-budget"> ₹0.00</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center mb-8">
+            <div class="w-full max-w-lg">
+                <div id="expense-chart" class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-xl font-bold mb-2">Expense Breakdown <i class="fa-brands fa-codepen" style="color: #63E6BE;"></i></h2>
+                    <canvas id="expenseChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center">
+            <div class="w-full max-w-lg">
+                <div id="expense-list" class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-xl font-bold mb-4">Expense List</h2>
+                    <!-- List elements go here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
